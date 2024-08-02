@@ -32,16 +32,17 @@ intelligence (BI) tool, modeling a fictitious fashion business.
 
 # Schema
 
-The Look's schema consists of 4 tables:
+The Look's schema consists of 5 tables:
 
 | Table               | Row count |
 | :------------------ | --------: |
+| all_types           | 1         |
 | nested_and_repeated | 2         |
-| orders              | 59        |
-| order_items         | 8         |
-| users               | 275       |
+| orders              | 4,066     |
+| order_items         | 12,142    |
+| users               | 85        |
 
-Its size is about 900 KB uncompressed, 160 KB compressed.
+Its size is about 970 KB uncompressed, 160 KB compressed.
 
 # Using the data set
 
@@ -66,8 +67,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 final String url = "jdbc:hsqldb:res:look";
-final String sql = "select \"EmployeeId\", \"LastName\" from \"Employee\"";
-try (Connection c = DriverManager.getConnection(url, "look", "look");
+final String sql = "select \"id\", \"name\" from \"users\"";
+try (Connection c = DriverManager.getConnection(url, "LOOK", "LOOK");
     Statement s = c.createStatement();
     ResultSet r = s.executeQuery(sql)) {
   while (r.next()) {
@@ -83,12 +84,12 @@ Make sure that `look-data-hsqldb.jar` is on the class path, and start `sqlline`:
 $ ./sqlline
 sqlline version 1.12.0
 sqlline> !connect jdbc:hsqldb:res:look sa ""
-0: jdbc:hsqldb:res:look> select count(*) from "look"."Track";
-+----------------------+
-|          C1          |
-+----------------------+
-| 3503                 |
-+----------------------+
+0: jdbc:hsqldb:res:look> select count(*) from "look"."orders";
++------+
+|  C1  |
++------+
+| 4066 |
++------+
 1 row selected (0.004 seconds)
 0: jdbc:hsqldb:res:look> !quit
 ```
@@ -100,12 +101,12 @@ schema is "look", so you can omit the table prefix, if you wish:
 $ ./sqlline
 sqlline version 1.12.0
 sqlline> !connect jdbc:hsqldb:res:look LOOK LOOK
-0: jdbc:hsqldb:res:look> select count(*) from "Track";
-+----------------------+
-|          C1          |
-+----------------------+
-| 3503                 |
-+----------------------+
+0: jdbc:hsqldb:res:look> select count(*) from "users";
++------+
+|  C1  |
++------+
+| 4066 |
++------+
 1 row selected (0.004 seconds)
 0: jdbc:hsqldb:res:look> !quit
 ```
@@ -121,7 +122,7 @@ Get look-data-hsqldb from
 <dependency>
   <groupId>net.hydromatic</groupId>
   <artifactId>look-data-hsqldb</artifactId>
-  <version>0.2</version>
+  <version>0.1</version>
 </dependency>
 ```
 

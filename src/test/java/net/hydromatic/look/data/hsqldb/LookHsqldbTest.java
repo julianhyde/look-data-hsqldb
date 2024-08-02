@@ -38,8 +38,11 @@ public class LookHsqldbTest {
         DriverManager.getConnection(LookHsqldb.URI, LookHsqldb.USER,
             LookHsqldb.PASSWORD);
     final Statement statement = connection.createStatement();
-    foo(statement.executeQuery("select * from \"Album\""), 1, is(347));
-    foo(statement.executeQuery("select * from \"Track\""), 2, is(3_503));
+    foo(statement.executeQuery("select * from \"all_types\""), 1, is(1));
+    foo(statement.executeQuery("select * from \"nested_and_repeated\""), 1, is(2));
+    foo(statement.executeQuery("select * from \"users\""), 2, is(85));
+    foo(statement.executeQuery("select * from \"orders\""), 2, is(4_066));
+    foo(statement.executeQuery("select * from \"order_items\""), 2, is(12_142));
     statement.close();
     connection.close();
   }
