@@ -22,7 +22,7 @@ License.
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/look-data-hsqldb/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/look-data-hsqldb)
 
 # look-data-hsqldb
-'The Look' data set for hsqldb
+'The Look' data set in hsqldb format
 
 This project contains the 'The Look' data set as an embedded
 HSQLDB database.

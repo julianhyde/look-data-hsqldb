@@ -1,4 +1,4 @@
-# 'The Look' data set for hsqldb - release history and change log
+# look-data-hsqldb release history and change log
 
 For a full list of releases, see
 <a href="https://github.com/julianhyde/look-data-hsqldb/releases">github</a>.

@@ -82,7 +82,7 @@ limitations under the License.
   <distributionManagement>
     <site>
       <id>look-data-hsqldb.website</id>
-      <name>Look data for hsqldb Website</name>
+      <name>Website for 'The Look' data in hsqldb format</name>
       <url>file:/home/jhyde/web2/look-data-hsqldb</url>
     </site>
   </distributionManagement>
