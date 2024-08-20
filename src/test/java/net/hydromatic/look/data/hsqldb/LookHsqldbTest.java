@@ -33,40 +33,41 @@ import static org.hamcrest.core.Is.is;
  * Kick the tires.
  */
 public class LookHsqldbTest {
-  @Test public void test() throws SQLException {
-    final Connection connection =
-        DriverManager.getConnection(LookHsqldb.URI, LookHsqldb.USER,
-            LookHsqldb.PASSWORD);
-    final Statement statement = connection.createStatement();
-    foo(statement.executeQuery("select * from \"all_types\""), 1, is(1));
-    foo(statement.executeQuery("select * from \"nested_and_repeated\""), 1, is(2));
-    foo(statement.executeQuery("select * from \"users\""), 2, is(85));
-    foo(statement.executeQuery("select * from \"orders\""), 2, is(4_066));
-    foo(statement.executeQuery("select * from \"order_items\""), 2, is(12_142));
-    statement.close();
-    connection.close();
+  @Test public void testSniffData() throws SQLException {
+    try (Connection connection =
+             DriverManager.getConnection(LookHsqldb.URI, LookHsqldb.USER,
+                 LookHsqldb.PASSWORD);
+         Statement s = connection.createStatement()) {
+      checkData(s, "select * from \"all_types\" order by 1", 1, is(1));
+      checkData(s, "select * from \"nested_and_repeated\" order by 1", 1, is(2));
+      checkData(s, "select * from \"users\" order by 1", 2, is(85));
+      checkData(s, "select * from \"orders\" order by 1", 2, is(4_066));
+      checkData(s, "select * from \"order_items\" order by 1", 2, is(12_142));
+    }
   }
 
-  private void foo(ResultSet resultSet, int printLimit,
+  private void checkData(Statement statement, String sql, int printLimit,
       Matcher<Integer> rowCountMatcher) throws SQLException {
-    final ResultSetMetaData metaData = resultSet.getMetaData();
-    final int columnCount = metaData.getColumnCount();
-    int row = 0;
-    while (resultSet.next()) {
-      if (row++ >= printLimit || printLimit < 0) {
-        continue;
-      }
-      for (int i = 0; i < columnCount; i++) {
-        if (i > 0) {
-          System.out.print(", ");
+    try (ResultSet resultSet = statement.executeQuery(sql)) {
+      final ResultSetMetaData metaData = resultSet.getMetaData();
+      final int columnCount = metaData.getColumnCount();
+      int row = 0;
+      while (resultSet.next()) {
+        if (row++ >= printLimit || printLimit < 0) {
+          continue;
         }
-        System.out.print(metaData.getColumnLabel(i + 1));
-        System.out.print(": ");
-        System.out.print(resultSet.getObject(i + 1));
+        for (int i = 0; i < columnCount; i++) {
+          if (i > 0) {
+            System.out.print(", ");
+          }
+          System.out.print(metaData.getColumnLabel(i + 1));
+          System.out.print(": ");
+          System.out.print(resultSet.getObject(i + 1));
+        }
+        System.out.println();
       }
-      System.out.println();
+      assertThat(row, rowCountMatcher);
     }
-    assertThat(row, rowCountMatcher);
   }
 }
 
