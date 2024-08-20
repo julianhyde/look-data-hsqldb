@@ -16,12 +16,18 @@
  */
 package net.hydromatic.look.data.hsqldb;
 
-/** Look data set in hsqldb format. */
+/** 'The Look' data set in hsqldb format. */
 public class LookHsqldb {
   /** URI of the hsqldb database. */
   public static final String URI = "jdbc:hsqldb:res:look";
-  public static final String USER = "LOOK";
-  public static final String PASSWORD = "LOOK";
+
+  /** Username for the hsqldb database. */
+  public static final String USER = "looker";
+
+  /** Password of the 'looker' user of the hsqldb database. */
+  public static final String PASSWORD = "looker";
+
+  /** Default schema of the 'looker' user. */
   public static final String SCHEMA = "look";
 }
 

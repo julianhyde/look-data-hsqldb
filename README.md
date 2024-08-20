@@ -68,7 +68,7 @@ import java.sql.ResultSet;
 
 final String url = "jdbc:hsqldb:res:look";
 final String sql = "select \"id\", \"name\" from \"users\"";
-try (Connection c = DriverManager.getConnection(url, "LOOK", "LOOK");
+try (Connection c = DriverManager.getConnection(url, "looker", "looker");
     Statement s = c.createStatement();
     ResultSet r = s.executeQuery(sql)) {
   while (r.next()) {
@@ -76,6 +76,15 @@ try (Connection c = DriverManager.getConnection(url, "LOOK", "LOOK");
   }
 }
 ```
+
+For your convenience, the
+[net.hydromatic.look.data.hsqldb.LookHsqldb](https://javadoc.io/doc/net.hydromatic/look-data-hsqldb/latest/net/hydromatic/look/data/hsqldb/LookHsqldb.html)
+class has public constants:
+
+* [URI](https://javadoc.io/doc/net.hydromatic/look-data-hsqldb/latest/net/hydromatic/look/data/hsqldb/LookHsqldb.html#URI) = "jdbc:hsqldb:res:look"
+* [USER](https://javadoc.io/doc/net.hydromatic/look-data-hsqldb/latest/net/hydromatic/look/data/hsqldb/LookHsqldb.html#USER) = "looker"
+* [PASSWORD](https://javadoc.io/doc/net.hydromatic/look-data-hsqldb/latest/net/hydromatic/look/data/hsqldb/LookHsqldb.html#PASSWORD) = "looker"
+* [SCHEMA](https://javadoc.io/doc/net.hydromatic/look-data-hsqldb/latest/net/hydromatic/look/data/hsqldb/LookHsqldb.html#SCHEMA) = "look"
 
 You can also connect using a JDBC interface such as [sqlline](https://github.com/julianhyde/sqlline).
 Make sure that `look-data-hsqldb.jar` is on the class path, and start `sqlline`:
@@ -94,13 +103,13 @@ sqlline> !connect jdbc:hsqldb:res:look sa ""
 0: jdbc:hsqldb:res:look> !quit
 ```
 
-If you use username and password "LOOK" and "LOOK", the default
+If you use username and password "looker" and "looker", the default
 schema is "look", so you can omit the table prefix, if you wish:
 
 ```sql
 $ ./sqlline
 sqlline version 1.12.0
-sqlline> !connect jdbc:hsqldb:res:look LOOK LOOK
+sqlline> !connect jdbc:hsqldb:res:look looker looker
 0: jdbc:hsqldb:res:look> select count(*) from "users";
 +------+
 |  C1  |
