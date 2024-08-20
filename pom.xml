@@ -30,7 +30,7 @@ limitations under the License.
 
   <name>look-data-hsqldb</name>
   <description>Look data set in hsqldb format</description>
-  <url>http://github.com/julianhyde/look-data-hsqldb</url>
+  <url>http://github.com/hydromatic/look-data-hsqldb</url>
   <inceptionYear>2024</inceptionYear>
   <organization>
     <name>Julian Hyde</name>
@@ -89,13 +89,13 @@ limitations under the License.
 
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/julianhyde/look-data-hsqldb/issues</url>
+    <url>https://github.com/hydromatic/look-data-hsqldb/issues</url>
   </issueManagement>
 
   <scm>
-    <connection>scm:git:git://github.com/julianhyde/look-data-hsqldb.git</connection>
-    <developerConnection>scm:git:git@github.com:julianhyde/look-data-hsqldb.git</developerConnection>
-    <url>scm:git:git://github.com/julianhyde/look-data-hsqldb.git</url>
+    <connection>scm:git:git://github.com/hydromatic/look-data-hsqldb.git</connection>
+    <developerConnection>scm:git:git@github.com:hydromatic/look-data-hsqldb.git</developerConnection>
+    <url>scm:git:git://github.com/hydromatic/look-data-hsqldb.git</url>
     <tag>HEAD</tag>
   </scm>
 

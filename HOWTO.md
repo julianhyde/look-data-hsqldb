@@ -7,7 +7,7 @@ Look Data Hsqldb.
 
 Make sure that `mvn clean install site` runs on JDK 7, 8, 9, 10,
 on Linux and Windows.
-Also check [Travis CI](https://travis-ci.org/julianhyde/look-data-hsqldb).
+Also check [Travis CI](https://travis-ci.org/hydromatic/look-data-hsqldb).
 
 Update the [release history](HISTORY.md),
 the version number at the bottom of [README](README.md),

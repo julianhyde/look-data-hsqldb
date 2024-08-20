@@ -18,7 +18,7 @@ language governing permissions and limitations under the
 License.
 {% endcomment %}
 -->
-[![Build Status](https://github.com/julianhyde/look-data-hsqldb/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/julianhyde/look-data-hsqldb/actions?query=branch%3Amain)
+[![Build Status](https://github.com/hydromatic/look-data-hsqldb/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/hydromatic/look-data-hsqldb/actions?query=branch%3Amain)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/look-data-hsqldb/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/look-data-hsqldb)
 
 # look-data-hsqldb
@@ -140,7 +140,7 @@ Get look-data-hsqldb from
 Java version 8 or higher.
 
 ```bash
-$ git clone git://github.com/julianhyde/look-data-hsqldb.git
+$ git clone git://github.com/hydromatic/look-data-hsqldb.git
 $ cd look-data-hsqldb
 $ ./mvnw install
 ```
@@ -166,11 +166,11 @@ Similar data sets:
 * Author: Julian Hyde
 * Blog: http://blog.hydromatic.net
 * Project page: http://www.hydromatic.net/look-data-hsqldb
-* Source code: https://github.com/julianhyde/look-data-hsqldb
+* Source code: https://github.com/hydromatic/look-data-hsqldb
 * Distribution: <a href="https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22look-data-hsqldb%22">Maven Central</a>
 * Developers list:
   <a href="mailto:dev@calcite.apache.org">dev at calcite.apache.org</a>
   (<a href="https://mail-archives.apache.org/mod_mbox/calcite-dev/">archive</a>,
   <a href="mailto:dev-subscribe@calcite.apache.org">subscribe</a>)
-* Issues: https://github.com/julianhyde/look-data-hsqldb/issues
+* Issues: https://github.com/hydromatic/look-data-hsqldb/issues
 * <a href="HISTORY.md">Release notes and history</a>
